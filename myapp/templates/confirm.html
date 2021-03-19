@@ -1,0 +1,29 @@
+{% extends 'signup_base.html' %}
+
+{% block title %}ユーザー確認{% endblock %}
+
+{% block content %}
+  <h1 class="signup-title">ユーザー確認</h1>
+  <table class="confirm-desc my-4">
+    <tr><td>お名前</td><td>{{form.cleaned_data.username}}</td></tr>
+    <tr><td>パスワード</td><td>********</td></tr>
+  </table>
+  <!-- 修正 -->
+  <div class="d-sm-flex">
+    <form action="{% url 'signup:signup' %}" method="POST">
+      {% csrf_token %}
+      {% for field in form %}
+        {{field.as_hidden}}
+      {% endfor %}
+      <button class="back-btn mx-3" type="submit">修正</button>
+    </form>
+    <!-- 登録 -->
+    <form action="{% url 'signup:create' %}" method="POST">
+      {% csrf_token %}
+      {% for field in form %}
+        {{field.as_hidden}}
+      {% endfor %}
+      <button class="regist-btn mx-3" type="submit">登録</button>
+    </form>
+  </div>
+{% endblock %}
