@@ -1,5 +1,7 @@
 .top .top-content,
-.signup-content {
+.signup-content,
+.login-content,
+.loggedout-content {
   height: 100vh;
   background-color: #e3fdfd;
   text-align: center;
@@ -10,7 +12,9 @@
 }
 
 .top .top-content .top-title,
-.signup-content .signup-title {
+.signup-content .signup-title,
+.login-content .login-title,
+.loggedout-content .logged-title {
   margin-bottom: 20px;
   letter-spacing: 2px;
   font-weight: 800;
@@ -20,7 +24,9 @@
 .top .top-content .btn,
 .signup-content .create .form-group .btn,
 .signup-content .back-btn,
-.signup-content .regist-btn {
+.signup-content .regist-btn,
+.login-content .btn,
+.loggedout-content .btn {
   background-color: #a6e3e9;
   width: 200px;
   margin: 20px 0;
@@ -34,7 +40,9 @@
 .top .top-content .btn:hover,
 .signup-content .create .form-group .btn:hover,
 .signup-content .back-btn:hover,
-.signup-content .regist-btn:hover {
+.signup-content .regist-btn:hover,
+.login-content .btn:hover,
+.loggedout-content .btn:hover  {
   color: #e3fdfd;
   background-color: #71c9ce;
   transform: scale(1.1, 1.1);
