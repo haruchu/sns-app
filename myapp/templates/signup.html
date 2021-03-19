@@ -1,0 +1,14 @@
+{% extends 'signup_base.html' %}
+
+{% block title %}ユーザー登録{% endblock %}
+
+{% block content %}
+  <h1 class="signup-title">ユーザー登録</h1>
+  <div class="create">
+    <form action="{% url 'signup:confirm' %}" method="POST">
+      {% csrf_token %}
+      {{form.as_p}}
+      <div class="button-center"><button class="confirm-btn" type="submit">確認</button></div>
+    </form>
+  </div>
+{% endblock %}

@@ -1,0 +1,32 @@
+.top .top-content,
+.signup-content {
+  height: 100vh;
+  background-color: #e3fdfd;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.top .top-content .top-title,
+.signup-content .signup-title {
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+.top .top-content .btn {
+  background-color: #a6e3e9;
+  width: 200px;
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 80px;
+  transition: 0.5s;
+}
+
+.top .top-content .btn:hover {
+  color: #e3fdfd;
+  background-color: #71c9ce;
+  transform: scale(1.1, 1.1);
+}
+
