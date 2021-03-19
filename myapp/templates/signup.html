@@ -4,11 +4,44 @@
 
 {% block content %}
   <h1 class="signup-title">ユーザー登録</h1>
-  <div class="create">
-    <form action="{% url 'signup:confirm' %}" method="POST">
-      {% csrf_token %}
-      {{form.as_p}}
-      <div class="button-center"><button class="confirm-btn" type="submit">確認</button></div>
+  <div class="create w-75">
+    <form action="{% url 'signup:confirm' %}" method="post">
+      <!-- ユーザ名 -->
+      <div class="form-group row">
+        <label for="name" class="col-md-6 col-form-label">
+            ユーザ名 <span class="badge badge-warning">必須</span>
+        </label>
+        <div class="col-md-6">
+            {% csrf_token %}
+            {{ form.username }}
+        </div>
+      </div>
+      <!-- /ユーザ名 -->
+
+      <!-- パスワード -->
+      <div class="form-group row">
+        <label for="password" class="col-md-6 col-form-label">パスワード<span class="badge badge-warning">必須</span></label>
+        <div class="col-md-6">
+          {% csrf_token %}
+          {{ form.password1 }}
+        </div>
+      </div>
+      <!-- /パスワード -->
+
+      <!-- パスワード確認 -->
+      <div class="form-group row">
+        <label for="password2" class="col-md-6 col-form-label">パスワードの確認 <span class="badge badge-warning">必須</span></label>
+        <div class="col-md-6">
+          {% csrf_token %}
+          {{ form.password2 }}
+        </div>
+      </div>
+      <!-- /パスワード確認 -->
+
+      <!-- 確認ボタン -->
+      <div class="form-group row justify-content-center">
+            <button type="submit" class="btn">登録する</button>
+      </div>
     </form>
   </div>
 {% endblock %}
