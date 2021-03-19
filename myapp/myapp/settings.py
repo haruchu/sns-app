@@ -128,6 +128,5 @@ STATICFILES_DIRS = [
     '/myapp/static/',
 ]
 
-
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = '/home'
