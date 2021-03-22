@@ -5,7 +5,7 @@ from django.urls import reverse
 from post.forms import PostForm
 from post.models import Post, Like
 
-class HomeView(LoginRequiredMixin, generic.FormView):
+class HomeView(generic.FormView):
     template_name = "home.html"
     form_class = PostForm
     login_url = '/'
@@ -22,4 +22,4 @@ class HomeView(LoginRequiredMixin, generic.FormView):
             user=self.request.user).values_list('post_id', flat=True)
         return context
     def get_success_url(self):
-        return reverse('twitter:profile', kwargs={'pk': self.user.id})
+        return reverse('user:profile', kwargs={'pk': self.user.id})

@@ -1,34 +1,32 @@
 {% extends 'app_base.html' %}
 
 {% block content %}
-<div class="home-content main-color h-100">
-  <div class="container">
-    <div class="row">
-      <div class="col-6 post-list">
-        <h4 class="home-title">ツイート</h4>
-        {% for post in posts %}
-          <div class="post sub-color">
-            <div class="user"><a href=""><span class="accent-color">{{post.user}}</span></a></div>
-            <p class="ml-3 mt-3">{{ post.text }}</p>
-            <div class="btn-right">
-              {% if post.id in my_likes_ids %}
-                <a href="{% url 'post:unlike' post.id %}" class="like-btn"><i class="fas fa-heart"></i><span class="like-num">{{post.like}}</span></a>
-              {% else %}
-                <a href="{% url 'post:like' post.id %}" class="prev-like-btn"><i class="far fa-heart"></i><span class="like-num">{{post.like}}</span></a>
-              {% endif %}
-            </div>
+<div class="container">
+  <div class="row">
+    <div class="col-6 main-content post-list">
+      <h4 class="home-title">ツイート</h4>
+      {% for post in posts %}
+        <div class="post sub-color">
+          <div class="user"><a href={% url 'user:profile' post.user.id %}><span class="accent-color">{{post.user}}</span></a></div>
+          <p class="ml-3 mt-3">{{ post.text }}</p>
+          <div class="btn-right">
+            {% if post.id in my_likes_ids %}
+              <a href="{% url 'post:unlike' post.id %}" class="like-btn"><i class="fas fa-heart"></i><span class="like-num">{{post.like}}</span></a>
+            {% else %}
+              <a href="{% url 'post:like' post.id %}" class="prev-like-btn"><i class="far fa-heart"></i><span class="like-num">{{post.like}}</span></a>
+            {% endif %}
           </div>
-        {% endfor %}
-      </div>
+        </div>
+      {% endfor %}
     </div>
-    <div class="row">
-      <div class="post-form sub-color col-6">
-        <form method="POST" action="{% url 'post:post' %}">
-          {% csrf_token %}
-          {{form.as_p}}
-          <input class="post-btn accent-color" type="submit" value="投稿する">
-        </form>
-      </div>
+  </div>
+  <div class="row">
+    <div class="post-form sub-color col-6">
+      <form method="POST" action="{% url 'post:post' %}">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="post-btn accent-color" type="submit" value="投稿する">
+      </form>
     </div>
   </div>
 </div>

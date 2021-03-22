@@ -2,12 +2,16 @@ from django.shortcuts import render, redirect
 from django.views import generic
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import PostForm
 from .models import Post, Like
 
-class CreatePost(generic.FormView):
+
+class CreatePost(LoginRequiredMixin, generic.FormView):
     success_url = reverse_lazy('/home')
     form_class = PostForm
+    login_url = '/'
 
     def form_valid(self, form):
         form_class = PostForm(self.request.POST)
@@ -19,6 +23,8 @@ class CreatePost(generic.FormView):
     def form_invalid(self, form):
         return render(self.request, 'home.html', {'form': form})
 
+
+@login_required
 def like(request, post_id):
     post = Post.objects.get(pk=post_id)
     # 0か1か
@@ -36,6 +42,8 @@ def like(request, post_id):
     like.save()
     return redirect('/home')
 
+
+@login_required
 def unlike(request, post_id):
     post = Post.objects.get(pk=post_id)
     # 0か1か

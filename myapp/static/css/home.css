@@ -78,81 +78,85 @@ header .logo-title {
 
 /* main */
 
-.home-content .row {
+main .row {
   justify-content: center;
 }
 
-.home-content .post-list {
+.main-content {
   height: 100vh;
-  padding: 4px;
-  margin-bottom: 400px;
+  margin: 12px;
   justify-content: center;
+  position: relative;
 }
 
-.home-content .post-list .home-title {
+.post-list {
+  margin-bottom: 400px;
+}
+
+.main-content .home-title {
   padding: 10px;
   font-weight: 800;
 }
 
-.home-content .post-list .post {
+.post-list .post {
   border: 2px solid #000;
   border-radius: 30px;
   margin: 5px 0;
   padding: 20px;
 }
 
-.home-content .post-list .post .user a {
+.post-list .post .user a {
   color: #000;
 }
 
-.home-content .post-list .post .user a span {
+.post-list .post .user a span {
   padding: 8px;
   margin-bottom: 4px;
   border-radius: 20px;
 }
 
 /* いいねボタン */
-.home-content .post-list .post .btn-right {
+.post-list .post .btn-right {
   display: flex;
   justify-content: flex-end;
 }
 
-.home-content .post-list .post .prev-like-btn,
-.home-content .post-list .post .like-btn {
+.post-list .post .prev-like-btn,
+.post-list .post .like-btn {
   margin: 8px;
   transition: 0.5s;
 }
 
-.home-content .post-list .post .prev-like-btn {
+.post-list .post .prev-like-btn {
   color: #cadefc;
 }
 
-.home-content .post-list .post .like-btn,
-.home-content .post-list .post .prev-like-btn:focus .far {
+.post-list .post .like-btn,
+.post-list .post .prev-like-btn:focus .far {
   color: red;
 }
-.home-content .post-list .post .prev-like-btn .like-num,
-.home-content .post-list .post .like-btn .like-num {
+.post-list .post .prev-like-btn .like-num,
+.post-list .post .like-btn .like-num {
   margin-left: 10px;
 }
 
-.home-content .post-list .post .prev-like-btn:hover,
-.home-content .post-list .post .like-btn:hover {
+.post-list .post .prev-like-btn:hover,
+.post-list .post .like-btn:hover {
   transform: scale(1.1, 1.1);
 }
 
-.home-content .post-list .post .prev-like-btn .fa-heart,
-.home-content .post-list .post .like-btn .fa-heart {
+.post-list .post .prev-like-btn .fa-heart,
+.post-list .post .like-btn .fa-heart {
   transition: 0.2s;
 }
 
-.home-content .post-list .post .prev-like-btn:focus .far {
+.post-list .post .prev-like-btn:focus .far {
   transform: scale(1.2, 1.2);
 }
 
 /* 入力フォーム */
 
-.home-content .post-form {
+.post-form {
   height: 200px;
   width: 100%;
   display: flex;
@@ -166,35 +170,35 @@ header .logo-title {
   z-index: 2;
 }
 
-.home-content .post-form form {
+.post-form form {
   width: 100%;
   position: relative;
 }
 
-.home-content .post-form .errorlist,
-.home-content .post-form form p label,
-.home-content .post-form form input + p {
+.post-form .errorlist,
+.post-form form p label,
+.post-form form input + p {
   display: none;
 }
 
-.home-content .post-form form p,
-.home-content .post-form form input {
+.post-form form p,
+.post-form form input {
   margin: 0;
 }
 
-.home-content .post-form form p {
+.post-form form p {
   height: 100%;
   margin-top: 8px;
 }
 
-.home-content .post-form p textarea {
+.post-form p textarea {
   width: 100%;
   background-color: #00adb5;
   border: none;
   outline: none;
 }
 
-.home-content .post-form form .post-btn {
+.post-form form .post-btn {
   height: 40px;
   width: 100px;
   outline: none;
@@ -205,9 +209,84 @@ header .logo-title {
   margin-bottom: 12px;
 }
 
-.home-content .post-form form .post-btn:active {
+.post-form form .post-btn:active {
   -webkit-transform: translateY(2px);
   transform: translateY(2px);
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
   border-bottom: none;
+}
+
+/* プロフィール */
+
+.main-content .user-title {
+  margin-bottom: 40px;
+}
+
+.main-content .btn {
+  float: right;
+}
+
+.main-content .follower-content {
+  width: 100%;
+  height: 180px;
+  position: absolute;
+  top: 250px;
+}
+
+.main-content .followee-content {
+  width: 100%;
+  height: 180px;
+  position: absolute;
+  top: 500px;
+}
+
+.main-content .follower-content .follower-num,
+.main-content .followee-content .followee-num {
+  color: #defcf9;
+  margin-left: 12px;
+}
+
+.main-content .follower-content .scrollable,
+.main-content .followee-content .scrollable {
+  overflow: scroll;
+  width: 100%;
+  height: 100%;
+}
+
+.main-content .follower-content .scrollable::-webkit-scrollbar,
+.main-content .followee-content .scrollable::-webkit-scrollbar {
+  width: 8px;
+}
+
+.main-content .follower-content .scrollable::-webkit-scrollbar-track,
+.main-content .followee-content .scrollable::-webkit-scrollbar-track {
+background: rgba(#defcf9, 0.1);
+  border: none;
+}
+
+.main-content .follower-content .scrollable::-webkit-scrollbar-thumb,
+.main-content .followee-content .scrollable::-webkit-scrollbar-thumb {
+  background: rgba(#defcf9, 0.1);
+  border-radius: 8px;
+  box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.8);
+}
+
+.main-content .follower-content .follower-members,
+.main-content .followee-content .followee-members {
+  padding: 0;
+}
+
+.main-content .follower-content .follower-member,
+.main-content .followee-content .followee-member {
+  border: #000 2px solid;
+  border-top: none;
+  margin: 0 12px;
+  padding: 8px;
+  color: #000;
+  background-color: #00adb5;
+}
+
+.main-content .follower-content .follower-member:first-child,
+.main-content .followee-content .followee-member:first-child {
+  border: #000 2px solid;
 }
