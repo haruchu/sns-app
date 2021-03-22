@@ -1,0 +1,213 @@
+body,
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* 配色 */
+.base-color {
+  background-color: #222831;
+  color: #fff;
+}
+
+.main-color {
+  background-color: #393e46;
+  color: #fff;
+}
+
+.sub-color {
+  background-color: #00adb5;
+  color: #000;
+}
+
+.accent-color {
+  background-color: #defcf9;
+}
+
+/* header */
+
+.header-inner {
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+header .logo-title {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.header-menu {
+  display: flex;
+  line-height: 50px;
+}
+
+.header-menu .header-menu-list {
+  display: flex;
+  margin: 0;
+}
+
+.header-menu .header-menu-list .header-item {
+  padding: 10px;
+  display: block;
+  color: #fff;
+  transition: 0.5s;
+}
+
+.header-menu .header-item:hover {
+  background-color: #37404e;
+  color: #ccc;
+}
+
+/* main */
+
+.home-content .row {
+  justify-content: center;
+}
+
+.home-content .post-list {
+  height: 100vh;
+  padding: 4px;
+  margin-bottom: 400px;
+  justify-content: center;
+}
+
+.home-content .post-list .home-title {
+  padding: 10px;
+  font-weight: 800;
+}
+
+.home-content .post-list .post {
+  border: 2px solid #000;
+  border-radius: 30px;
+  margin: 5px 0;
+  padding: 20px;
+}
+
+.home-content .post-list .post .user a {
+  color: #000;
+}
+
+.home-content .post-list .post .user a span {
+  padding: 8px;
+  margin-bottom: 4px;
+  border-radius: 20px;
+}
+
+/* いいねボタン */
+.home-content .post-list .post .btn-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.home-content .post-list .post .prev-like-btn,
+.home-content .post-list .post .like-btn {
+  margin: 8px;
+  transition: 0.5s;
+}
+
+.home-content .post-list .post .prev-like-btn {
+  color: #cadefc;
+}
+
+.home-content .post-list .post .like-btn,
+.home-content .post-list .post .prev-like-btn:focus .far {
+  color: red;
+}
+.home-content .post-list .post .prev-like-btn .like-num,
+.home-content .post-list .post .like-btn .like-num {
+  margin-left: 10px;
+}
+
+.home-content .post-list .post .prev-like-btn:hover,
+.home-content .post-list .post .like-btn:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.home-content .post-list .post .prev-like-btn .fa-heart,
+.home-content .post-list .post .like-btn .fa-heart {
+  transition: 0.2s;
+}
+
+.home-content .post-list .post .prev-like-btn:focus .far {
+  transform: scale(1.2, 1.2);
+}
+
+/* 入力フォーム */
+
+.home-content .post-form {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border: black 5px solid;
+  border-radius: 20px;
+  position: fixed;
+  bottom: 5px;
+  z-index: 2;
+}
+
+.home-content .post-form form {
+  width: 100%;
+  position: relative;
+}
+
+.home-content .post-form .errorlist,
+.home-content .post-form form p label,
+.home-content .post-form form input + p {
+  display: none;
+}
+
+.home-content .post-form form p,
+.home-content .post-form form input {
+  margin: 0;
+}
+
+.home-content .post-form form p {
+  height: 100%;
+  margin-top: 8px;
+}
+
+.home-content .post-form p textarea {
+  width: 100%;
+  background-color: #00adb5;
+  border: none;
+  outline: none;
+}
+
+.home-content .post-form form .post-btn {
+  height: 40px;
+  width: 100px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  border-bottom: solid 2px #00adb5;
+  margin-bottom: 12px;
+}
+
+.home-content .post-form form .post-btn:active {
+  -webkit-transform: translateY(2px);
+  transform: translateY(2px);
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+  border-bottom: none;
+}

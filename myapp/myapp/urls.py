@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('top.urls')),
     path('signup',include('signup.urls')),
     path('home',include('home.urls')),
+    path('post',include('post.urls')),
 ]
