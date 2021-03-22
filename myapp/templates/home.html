@@ -22,7 +22,7 @@
   </div>
   <div class="row">
     <div class="post-form sub-color col-6">
-      <form method="POST" action="{% url 'post:post' %}">
+      <form method="POST" action="{% url 'post:post' %}" class="">
         {% csrf_token %}
         {{form.as_p}}
         <input class="post-btn accent-color" type="submit" value="投稿する">

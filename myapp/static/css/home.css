@@ -1,3 +1,7 @@
+body {
+  line-height: 1.0;
+}
+
 body,
 h1,
 h2,
@@ -16,6 +20,28 @@ a:hover {
 
 button:focus {
   outline: none;
+}
+
+.scrollable {
+  overflow: scroll;
+  width: 100%;
+  height: 100%;
+}
+
+.scrollable::-webkit-scrollbar {
+  width: 8px;
+}
+
+
+.scrollable::-webkit-scrollbar-track {
+  background: rgba(#defcf9, 0.1);
+  border: none;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+  background: rgba(#defcf9, 0.1);
+  border-radius: 8px;
+  box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.8);
 }
 
 /* 配色 */
@@ -45,18 +71,42 @@ button:focus {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+}
+
+header .logo-item {
+  padding: 5px 0;
 }
 
 header .logo-title {
+  padding: 5px 0;
   color: #fff;
   font-size: 30px;
   font-weight: 500;
+  display: inline-block;
+  transition: 0.5s;
+  overflow: hidden;
+  position: relative;
+}
+
+header .logo-title::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+  transform: translate(-100%, 0);
+  transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.4s;
+  content: "";
+}
+
+
+header .logo-title:hover::after {
+  transform: translate(0, 0);
 }
 
 .header-menu {
   display: flex;
-  line-height: 50px;
 }
 
 .header-menu .header-menu-list {
@@ -65,13 +115,14 @@ header .logo-title {
 }
 
 .header-menu .header-menu-list .header-item {
-  padding: 10px;
-  display: block;
+  display: inline-block;
+  padding: 0 10px;
+  line-height: 70px;
   color: #fff;
   transition: 0.5s;
 }
 
-.header-menu .header-item:hover {
+.header-menu .header-menu-list .header-item:hover {
   background-color: #37404e;
   color: #ccc;
 }
@@ -172,7 +223,9 @@ main .row {
 
 .post-form form {
   width: 100%;
-  position: relative;
+  height: 140px;
+  display: flex;
+  justify-content: center;
 }
 
 .post-form .errorlist,
@@ -187,12 +240,17 @@ main .row {
 }
 
 .post-form form p {
-  height: 100%;
+  width: 100%;
+  margin-top: 8px;
+  position: absolute;
+  top: 8px;
+  left: 0;
   margin-top: 8px;
 }
 
 .post-form p textarea {
   width: 100%;
+  padding: 4px;
   background-color: #00adb5;
   border: none;
   outline: none;
@@ -206,7 +264,8 @@ main .row {
   border-radius: 4px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
   border-bottom: solid 2px #00adb5;
-  margin-bottom: 12px;
+  position: absolute;
+  bottom: 8px;
 }
 
 .post-form form .post-btn:active {
@@ -244,31 +303,6 @@ main .row {
 .main-content .followee-content .followee-num {
   color: #defcf9;
   margin-left: 12px;
-}
-
-.main-content .follower-content .scrollable,
-.main-content .followee-content .scrollable {
-  overflow: scroll;
-  width: 100%;
-  height: 100%;
-}
-
-.main-content .follower-content .scrollable::-webkit-scrollbar,
-.main-content .followee-content .scrollable::-webkit-scrollbar {
-  width: 8px;
-}
-
-.main-content .follower-content .scrollable::-webkit-scrollbar-track,
-.main-content .followee-content .scrollable::-webkit-scrollbar-track {
-background: rgba(#defcf9, 0.1);
-  border: none;
-}
-
-.main-content .follower-content .scrollable::-webkit-scrollbar-thumb,
-.main-content .followee-content .scrollable::-webkit-scrollbar-thumb {
-  background: rgba(#defcf9, 0.1);
-  border-radius: 8px;
-  box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.8);
 }
 
 .main-content .follower-content .follower-members,
