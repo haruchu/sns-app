@@ -3,25 +3,19 @@ from django.views import generic
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import PostForm
 from .models import Post, Like
 
-
-class CreatePost(LoginRequiredMixin, generic.FormView):
-    success_url = reverse_lazy('/home')
-    form_class = PostForm
-    login_url = '/'
-
-    def form_valid(self, form):
-        form_class = PostForm(self.request.POST)
-        post = form_class.save(commit=False)
-        post.user = self.request.user
+@login_required
+def create_post(request):
+    form = PostForm(request.POST)
+    if form.is_valid():
+        form = PostForm(request.POST)
+        post = form.save(commit=False)
+        post.user = request.user
         post = form.save()
         return redirect('/home')
-
-    def form_invalid(self, form):
-        return render(self.request, 'home.html', {'form': form})
+    return render(request, 'home.html', {'form': form})
 
 
 @login_required
