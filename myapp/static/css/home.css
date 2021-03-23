@@ -1,0 +1,326 @@
+body {
+  line-height: 1.0;
+}
+
+body,
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+.scrollable {
+  overflow: scroll;
+  width: 100%;
+  height: 100%;
+}
+
+.scrollable::-webkit-scrollbar {
+  width: 8px;
+}
+
+
+.scrollable::-webkit-scrollbar-track {
+  background: rgba(#defcf9, 0.1);
+  border: none;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+  background: rgba(#defcf9, 0.1);
+  border-radius: 8px;
+  box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.8);
+}
+
+/* 配色 */
+.base-color {
+  background-color: #222831;
+  color: #fff;
+}
+
+.main-color {
+  background-color: #393e46;
+  color: #fff;
+}
+
+.sub-color {
+  background-color: #00adb5;
+  color: #000;
+}
+
+.accent-color {
+  background-color: #defcf9;
+}
+
+/* header */
+
+.header-inner {
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo-item {
+  padding: 5px 0;
+}
+
+header .logo-title {
+  padding: 5px 0;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 500;
+  display: inline-block;
+  transition: 0.5s;
+  overflow: hidden;
+  position: relative;
+}
+
+header .logo-title::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+  transform: translate(-100%, 0);
+  transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.4s;
+  content: "";
+}
+
+
+header .logo-title:hover::after {
+  transform: translate(0, 0);
+}
+
+.header-menu {
+  display: flex;
+}
+
+.header-menu .header-menu-list {
+  display: flex;
+  margin: 0;
+}
+
+.header-menu .header-menu-list .header-item {
+  display: inline-block;
+  padding: 0 10px;
+  line-height: 70px;
+  color: #fff;
+  transition: 0.5s;
+}
+
+.header-menu .header-menu-list .header-item:hover {
+  background-color: #37404e;
+  color: #ccc;
+}
+
+/* main */
+
+main .row {
+  justify-content: center;
+}
+
+.main-content {
+  height: 100vh;
+  margin: 12px;
+  justify-content: center;
+  position: relative;
+}
+
+.post-list {
+  margin-bottom: 400px;
+}
+
+.main-content .home-title {
+  padding: 10px;
+  font-weight: 800;
+}
+
+.post-list .post {
+  border: 2px solid #000;
+  border-radius: 30px;
+  margin: 5px 0;
+  padding: 20px;
+}
+
+.post-list .post .user a {
+  color: #000;
+}
+
+.post-list .post .user a span {
+  padding: 8px;
+  margin-bottom: 4px;
+  border-radius: 20px;
+}
+
+/* いいねボタン */
+.post-list .post .btn-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.post-list .post .prev-like-btn,
+.post-list .post .like-btn {
+  margin: 8px;
+  transition: 0.5s;
+}
+
+.post-list .post .prev-like-btn {
+  color: #cadefc;
+}
+
+.post-list .post .like-btn,
+.post-list .post .prev-like-btn:focus .far {
+  color: red;
+}
+.post-list .post .prev-like-btn .like-num,
+.post-list .post .like-btn .like-num {
+  margin-left: 10px;
+}
+
+.post-list .post .prev-like-btn:hover,
+.post-list .post .like-btn:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.post-list .post .prev-like-btn .fa-heart,
+.post-list .post .like-btn .fa-heart {
+  transition: 0.2s;
+}
+
+.post-list .post .prev-like-btn:focus .far {
+  transform: scale(1.2, 1.2);
+}
+
+/* 入力フォーム */
+
+.post-form {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border: black 5px solid;
+  border-radius: 20px;
+  position: fixed;
+  bottom: 5px;
+  z-index: 2;
+}
+
+.post-form form {
+  width: 100%;
+  height: 140px;
+  display: flex;
+  justify-content: center;
+}
+
+.post-form .errorlist,
+.post-form form p label,
+.post-form form input + p {
+  display: none;
+}
+
+.post-form form p,
+.post-form form input {
+  margin: 0;
+}
+
+.post-form form p {
+  width: 100%;
+  margin-top: 8px;
+  position: absolute;
+  top: 8px;
+  left: 0;
+  margin-top: 8px;
+}
+
+.post-form p textarea {
+  width: 100%;
+  padding: 4px;
+  background-color: #00adb5;
+  border: none;
+  outline: none;
+}
+
+.post-form form .post-btn {
+  height: 40px;
+  width: 100px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  border-bottom: solid 2px #00adb5;
+  position: absolute;
+  bottom: 8px;
+}
+
+.post-form form .post-btn:active {
+  -webkit-transform: translateY(2px);
+  transform: translateY(2px);
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+  border-bottom: none;
+}
+
+/* プロフィール */
+
+.main-content .user-title {
+  margin-bottom: 40px;
+}
+
+.main-content .btn {
+  float: right;
+}
+
+.main-content .follower-content {
+  width: 100%;
+  height: 180px;
+  position: absolute;
+  top: 250px;
+}
+
+.main-content .followee-content {
+  width: 100%;
+  height: 180px;
+  position: absolute;
+  top: 500px;
+}
+
+.main-content .follower-content .follower-num,
+.main-content .followee-content .followee-num {
+  color: #defcf9;
+  margin-left: 12px;
+}
+
+.main-content .follower-content .follower-members,
+.main-content .followee-content .followee-members {
+  padding: 0;
+}
+
+.main-content .follower-content .follower-member,
+.main-content .followee-content .followee-member {
+  border: #000 2px solid;
+  border-top: none;
+  margin: 0 12px;
+  padding: 8px;
+  color: #000;
+  background-color: #00adb5;
+}
+
+.main-content .follower-content .follower-member:first-child,
+.main-content .followee-content .followee-member:first-child {
+  border: #000 2px solid;
+}

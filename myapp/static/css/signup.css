@@ -1,9 +1,32 @@
+body {
+  margin: 0;
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}
+
+button:focus {
+  outline: none;
+}
+
 .top .top-content,
 .signup-content,
 .login-content,
 .loggedout-content {
   height: 100vh;
-  background-color: #e3fdfd;
+  background-color: #393e46;
+  color: white;
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -18,7 +41,7 @@
   margin-bottom: 20px;
   letter-spacing: 2px;
   font-weight: 800;
-  color: #71c9ce;
+  color: white;
 }
 
 .top .top-content .btn,
@@ -27,7 +50,8 @@
 .signup-content .regist-btn,
 .login-content .btn,
 .loggedout-content .btn {
-  background-color: #a6e3e9;
+  background-color: #222831;
+  color: white;
   width: 200px;
   margin: 20px 0;
   padding: 20px;
@@ -43,8 +67,8 @@
 .signup-content .regist-btn:hover,
 .login-content .btn:hover,
 .loggedout-content .btn:hover  {
-  color: #e3fdfd;
-  background-color: #71c9ce;
+  color: #222831;
+  background-color: white;
   transform: scale(1.1, 1.1);
 }
 
