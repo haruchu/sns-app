@@ -52,3 +52,10 @@ def unlike(request, post_id):
     post.like -= 1
     post.save()
     return redirect('/home')
+
+@login_required
+def delete(request, post_id):
+    post = Post.objects.get(pk=post_id)
+    post.delete()
+    return redirect('/home')
+

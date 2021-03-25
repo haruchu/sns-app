@@ -15,7 +15,7 @@
       {% for field in form %}
         {{field.as_hidden}}
       {% endfor %}
-      <button class="back-btn mx-3" type="submit">修正</button>
+      <button class="btn mx-3" type="submit">修正</button>
     </form>
     <!-- 登録 -->
     <form action="{% url 'signup:create' %}" method="POST">
@@ -23,7 +23,10 @@
       {% for field in form %}
         {{field.as_hidden}}
       {% endfor %}
-      <button class="regist-btn mx-3" type="submit">登録</button>
+      <button class="btn mx-3" type="submit">登録</button>
     </form>
+  </div>
+  <div class="back">
+    <a href="{% url 'top:top' %}"><span class="zoom"><i class="fas fa-undo-alt"></i>TOP</span></a>
   </div>
 {% endblock %}
