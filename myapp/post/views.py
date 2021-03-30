@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from .forms import PostForm, ReplyForm
-from .models import Post, Like, Reply
+from .models import Post, Like, Reply,ReplyLike
 from user.helpers import get_current_user
 
 
@@ -91,4 +91,46 @@ def reply(request, post_id):
         reply = form.save()
         return redirect('post:reply_list',post_id=post_id)
     return render(request, 'reply_list.html', {'form': form})
+
+@login_required
+def reply_like(request, post_id ,reply_id):
+    reply = Reply.objects.get(pk=reply_id)
+    # 0か1か
+    like_num = ReplyLike.objects.filter(
+        user=request.user).filter(post=reply).count()
+    # 該当するツイートをいいねしていた場合
+    if like_num > 0:
+        return redirect('post:reply_list',post_id=post_id)
+    # いいねしてなかった場合はここまでくる
+    reply.like += 1
+    reply.save()
+    like = ReplyLike()
+    like.user = request.user
+    like.post = reply
+    like.save()
+    return redirect('post:reply_list',post_id=post_id)
+
+
+@login_required
+def reply_unlike(request, post_id,reply_id):
+    reply = Reply.objects.get(pk=reply_id)
+    # 0か1か
+    like_num = ReplyLike.objects.filter(
+        user=request.user).filter(post=reply).count()
+    # いいねされていなかった場合
+    if like_num == 0:
+        return redirect('post:reply_list',post_id=post_id)
+    # いいねしていた場合はここまでくる
+    liking = ReplyLike.objects.get(post_id=reply_id, user=request.user)
+    liking.delete()
+    reply.like -= 1
+    reply.save()
+    return redirect('post:reply_list',post_id=post_id)
+
+
+@login_required
+def reply_delete(request, post_id,reply_id):
+    reply = Reply.objects.get(pk=reply_id)
+    reply.delete()
+    return redirect('post:reply_list',post_id=post_id)
 

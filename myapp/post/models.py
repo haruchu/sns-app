@@ -9,18 +9,7 @@ class Post(models.Model):
     like = models.PositiveIntegerField(default=0)
 
     def __str__(self):
-        return (str(self.text)+'(' + str(self.user)+')')
-
-
-class Like(models.Model):
-    user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='like_user')
-    post = models.ForeignKey(
-        Post, on_delete=models.CASCADE, related_name="post")
-
-    def __str__(self):
-        return (str(self.user) + '　→ ' + str(self.post) + '　にいいね')
-
+        return (str(self.text) + '(' + str(self.user) + ')')
 
 class Reply(models.Model):
     post = models.ForeignKey(
@@ -33,3 +22,23 @@ class Reply(models.Model):
 
     def __str__(self):
         return (str(self.text)+'(' + str(self.user)+')')
+
+
+class Like(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='like_user')
+    post = models.ForeignKey(
+        Post, on_delete=models.CASCADE, related_name="post")
+
+    def __str__(self):
+        return (str(self.user) + '　→ ' + str(self.post) + '　にいいね')
+
+class ReplyLike(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='reply_like_user')
+    post = models.ForeignKey(
+        Reply, on_delete=models.CASCADE, related_name="reply")
+
+    def __str__(self):
+        return (str(self.user) + '　→ ' + str(self.post) + '　にいいね')
+
