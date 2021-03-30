@@ -15,6 +15,7 @@
           {% endif %}
           <p class="ml-3 mt-3">{{ post.text }}</p>
           <div class="btn-right">
+            <a href="{% url 'post:reply_list' post.id %}" class="like-btn zoom"><i class="fas fa-reply"></i><span class="like-num"></span></a>
             {% if post.id in my_likes_ids %}
               <a href="{% url 'post:unlike' post.id %}" class="like-btn zoom"><i class="fas fa-heart"></i><span class="like-num">{{post.like}}</span></a>
             {% else %}

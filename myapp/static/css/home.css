@@ -292,50 +292,64 @@ main .row {
 
 /* プロフィール */
 
-.main-content .user-title {
-  margin-bottom: 40px;
+.profile-content {
+  height: 100%;
 }
 
-.main-content .btn {
+.profile-content .title {
+  margin-bottom: 40px;
+  padding: 10px;
+}
+
+.profile-content .btn {
   float: right;
 }
 
-.main-content .follower-content {
+.profile-content .follower-content {
   width: 100%;
   height: 180px;
-  position: absolute;
-  top: 250px;
+  margin-top: 180px;
 }
 
-.main-content .followee-content {
+.profile-content .followee-content {
   width: 100%;
   height: 180px;
-  position: absolute;
-  top: 500px;
+  margin-top: 200px;
+  margin-bottom: 180px;
 }
 
-.main-content .follower-content .follower-num,
-.main-content .followee-content .followee-num {
+.profile-content .follower-content .follower-num,
+.profile-content .followee-content .followee-num {
   color: #defcf9;
   margin-left: 12px;
 }
 
-.main-content .follower-content .follower-members,
-.main-content .followee-content .followee-members {
+.profile-content .follower-content .follower-members,
+.profile-content .followee-content .followee-members {
   padding: 0;
 }
 
-.main-content .follower-content .follower-member,
-.main-content .followee-content .followee-member {
+.profile-content .follower-content .follower-member,
+.profile-content .followee-content .followee-member {
   border: #000 2px solid;
   border-top: none;
   margin: 0 12px;
-  padding: 8px;
-  color: #000;
   background-color: #00adb5;
 }
 
-.main-content .follower-content .follower-member:first-child,
-.main-content .followee-content .followee-member:first-child {
+.profile-content .follower-content .follower-member a,
+.profile-content .followee-content .followee-member a {
+  display: block;
+  padding: 8px;
+  color: #000;
+}
+
+
+.profile-content .follower-content .follower-member:first-child,
+.profile-content .followee-content .followee-member:first-child {
   border: #000 2px solid;
+}
+
+.profile-content .post-list {
+  margin-top: 200px;
 }
