@@ -188,16 +188,17 @@ main .row {
 /* いいねボタン */
 .post-list .post .btn-right {
   display: flex;
+  align-items: center;
   justify-content: flex-end;
 }
 
 .post-list .post .prev-like-btn,
 .post-list .post .like-btn {
-  margin: 8px;
   transition: 0.5s;
 }
 
-.post-list .post .prev-like-btn {
+.post-list .post .prev-like-btn,
+.post-list .post .reply-btn {
   color: #cadefc;
 }
 
@@ -205,6 +206,11 @@ main .row {
 .post-list .post .prev-like-btn:focus .far {
   color: red;
 }
+
+.post-list .post .reply-btn:focus {
+  color: blue;
+}
+
 .post-list .post .prev-like-btn .like-num,
 .post-list .post .like-btn .like-num {
   margin-left: 10px;

@@ -13,30 +13,11 @@
           </div>
         {% endif %}
         <p class="ml-3 mt-3">{{ main_post.text }}</p>
-        <div class="btn-right">
-          {% if main_post.id in my_likes_ids %}
-            <a href="{% url 'post:unlike' main_post.id %}" class="like-btn zoom"><i class="fas fa-heart"></i><span class="like-num">{{main_post.like}}</span></a>
-          {% else %}
-            <a href="{% url 'post:like' main_post.id %}" class="prev-like-btn zoom"><i class="far fa-heart"></i><span class="like-num">{{main_post.like}}</span></a>
-          {% endif %}
-        </div>
       </div>
       {% for reply in replies %}
         <div class="post sub-color">
           <div class="user"><a href={% url 'user:profile' reply.user.id %}><span class="accent-color">{{reply.user}}</span></a></div>
-          {% if current_user == reply.user %}
-            <div class="delete">
-              <a href="{% url 'post:reply_delete' main_post.id reply.id %}"><i class="fas fa-times zoom"></i></a>
-            </div>
-          {% endif %}
           <p class="ml-3 mt-3">{{ reply.text }}</p>
-          <div class="btn-right">
-            {% if reply.id in my_likes_ids %}
-              <a href="{% url 'post:reply_unlike' main_post.id reply.id %}" class="like-btn zoom"><i class="fas fa-heart"></i><span class="like-num">{{reply.like}}</span></a>
-            {% else %}
-              <a href="{% url 'post:reply_like' main_post.id reply.id %}" class="prev-like-btn zoom"><i class="far fa-heart"></i><span class="like-num">{{reply.like}}</span></a>
-            {% endif %}
-          </div>
         </div>
       {% endfor %}
     </div>
