@@ -3,10 +3,12 @@
 {% block title %}ログアウト画面{% endblock %}
 
 {% block content %}
-<div class="loggedout-content">
-  <h1 class="loggedout-title">ログアウトしました</h1>
+<div class="main-content">
+  <h1 class="title">ログアウトしました</h1>
   <a href="{% url 'signup:signup' %}" class="btn">アカウント作成</a>
   <a href="{% url 'login' %}" class="btn">ログイン</a>
-</div>
+  <div class="back">
+    <a href="{% url 'top:top' %}"><span class="zoom"><i class="fas fa-undo-alt"></i>TOP</span></a>
+  </div>
 {% endblock %}
 

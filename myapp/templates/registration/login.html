@@ -3,14 +3,17 @@
 {% block title %}ログイン画面{% endblock %}
 
 {% block content %}
-  <div class="login-content">
-    <h1 class="login-title">ログイン画面</h1>
+  <div class="main-content">
+    <h1 class="title">ログイン画面</h1>
     <div class="login">
       <form method="POST">
         {% csrf_token %}
         {{form.as_p}}
         <div class="button-center"><button class="btn" type="submit">ログイン</button></div>
       </form>
+    </div>
+    <div class="back">
+      <a href="{% url 'top:top' %}"><span class="zoom"><i class="fas fa-undo-alt"></i>TOP</span></a>
     </div>
   </div>
   {% endblock %}

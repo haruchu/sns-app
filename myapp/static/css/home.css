@@ -18,6 +18,14 @@ a:hover {
   text-decoration: none;
 }
 
+.zoom {
+  transition: 0.5s;
+}
+
+.zoom:hover {
+  transform: scale(1.3, 1.3);
+}
+
 button:focus {
   outline: none;
 }
@@ -154,6 +162,7 @@ main .row {
   border-radius: 30px;
   margin: 5px 0;
   padding: 20px;
+  position: relative;
 }
 
 .post-list .post .user a {
@@ -166,19 +175,30 @@ main .row {
   border-radius: 20px;
 }
 
+.post-list .post .delete {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+}
+
+.post-list .post .delete a .fa-times {
+  color: #000;
+}
+
 /* いいねボタン */
 .post-list .post .btn-right {
   display: flex;
+  align-items: center;
   justify-content: flex-end;
 }
 
 .post-list .post .prev-like-btn,
 .post-list .post .like-btn {
-  margin: 8px;
   transition: 0.5s;
 }
 
-.post-list .post .prev-like-btn {
+.post-list .post .prev-like-btn,
+.post-list .post .reply-btn {
   color: #cadefc;
 }
 
@@ -186,14 +206,14 @@ main .row {
 .post-list .post .prev-like-btn:focus .far {
   color: red;
 }
+
+.post-list .post .reply-btn:focus {
+  color: blue;
+}
+
 .post-list .post .prev-like-btn .like-num,
 .post-list .post .like-btn .like-num {
   margin-left: 10px;
-}
-
-.post-list .post .prev-like-btn:hover,
-.post-list .post .like-btn:hover {
-  transform: scale(1.1, 1.1);
 }
 
 .post-list .post .prev-like-btn .fa-heart,
@@ -201,8 +221,9 @@ main .row {
   transition: 0.2s;
 }
 
-.post-list .post .prev-like-btn:focus .far {
-  transform: scale(1.2, 1.2);
+.post-list .post .prev-like-btn:focus .far,
+.post-list .post .like-btn:focus .fas {
+  transform: scale(1.5, 1.5);
 }
 
 /* 入力フォーム */
@@ -277,50 +298,64 @@ main .row {
 
 /* プロフィール */
 
-.main-content .user-title {
-  margin-bottom: 40px;
+.profile-content {
+  height: 100%;
 }
 
-.main-content .btn {
+.profile-content .title {
+  margin-bottom: 40px;
+  padding: 10px;
+}
+
+.profile-content .btn {
   float: right;
 }
 
-.main-content .follower-content {
+.profile-content .follower-content {
   width: 100%;
   height: 180px;
-  position: absolute;
-  top: 250px;
+  margin-top: 180px;
 }
 
-.main-content .followee-content {
+.profile-content .followee-content {
   width: 100%;
   height: 180px;
-  position: absolute;
-  top: 500px;
+  margin-top: 200px;
+  margin-bottom: 180px;
 }
 
-.main-content .follower-content .follower-num,
-.main-content .followee-content .followee-num {
+.profile-content .follower-content .follower-num,
+.profile-content .followee-content .followee-num {
   color: #defcf9;
   margin-left: 12px;
 }
 
-.main-content .follower-content .follower-members,
-.main-content .followee-content .followee-members {
+.profile-content .follower-content .follower-members,
+.profile-content .followee-content .followee-members {
   padding: 0;
 }
 
-.main-content .follower-content .follower-member,
-.main-content .followee-content .followee-member {
+.profile-content .follower-content .follower-member,
+.profile-content .followee-content .followee-member {
   border: #000 2px solid;
   border-top: none;
   margin: 0 12px;
-  padding: 8px;
-  color: #000;
   background-color: #00adb5;
 }
 
-.main-content .follower-content .follower-member:first-child,
-.main-content .followee-content .followee-member:first-child {
+.profile-content .follower-content .follower-member a,
+.profile-content .followee-content .followee-member a {
+  display: block;
+  padding: 8px;
+  color: #000;
+}
+
+
+.profile-content .follower-content .follower-member:first-child,
+.profile-content .followee-content .followee-member:first-child {
   border: #000 2px solid;
+}
+
+.profile-content .post-list {
+  margin-top: 200px;
 }

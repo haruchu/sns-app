@@ -3,7 +3,7 @@
 {% block title %}ユーザー登録{% endblock %}
 
 {% block content %}
-  <h1 class="signup-title">ユーザー登録</h1>
+  <h1 class="title">ユーザー登録</h1>
   <div class="create w-75">
     <form action="{% url 'signup:confirm' %}" method="post">
       <!-- ユーザ名 -->
@@ -43,5 +43,8 @@
             <button type="submit" class="btn">登録する</button>
       </div>
     </form>
+  </div>
+  <div class="back">
+    <a href="{% url 'top:top' %}"><span class="zoom"><i class="fas fa-undo-alt"></i>TOP</span></a>
   </div>
 {% endblock %}

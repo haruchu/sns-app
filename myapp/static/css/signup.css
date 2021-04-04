@@ -16,14 +16,19 @@ a:hover {
   text-decoration: none;
 }
 
+.zoom {
+  transition: 0.5s;
+}
+
+.zoom:hover {
+  transform: scale(1.2, 1.2);
+}
+
 button:focus {
   outline: none;
 }
 
-.top .top-content,
-.signup-content,
-.login-content,
-.loggedout-content {
+.main-content {
   height: 100vh;
   background-color: #393e46;
   color: white;
@@ -32,24 +37,17 @@ button:focus {
   justify-content: center;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
-.top .top-content .top-title,
-.signup-content .signup-title,
-.login-content .login-title,
-.loggedout-content .logged-title {
+.main-content .title {
   margin-bottom: 20px;
   letter-spacing: 2px;
   font-weight: 800;
   color: white;
 }
 
-.top .top-content .btn,
-.signup-content .create .form-group .btn,
-.signup-content .back-btn,
-.signup-content .regist-btn,
-.login-content .btn,
-.loggedout-content .btn {
+.main-content .btn {
   background-color: #222831;
   color: white;
   width: 200px;
@@ -60,26 +58,34 @@ button:focus {
   border: none;
 }
 
-
-.top .top-content .btn:hover,
-.signup-content .create .form-group .btn:hover,
-.signup-content .back-btn:hover,
-.signup-content .regist-btn:hover,
-.login-content .btn:hover,
-.loggedout-content .btn:hover  {
+.main-content .btn:hover {
   color: #222831;
   background-color: white;
   transform: scale(1.1, 1.1);
 }
 
-.signup-content .back-btn:focus,
-.signup-content .regist-btn:focus {
-  outline: none;
-}
-
-.signup-content .confirm-desc {
+.main-content .confirm-desc {
   font-size: 20px;
   letter-spacing: 2px;
   font-weight: 500;
 }
 
+.main-content .back {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+}
+
+.main-content .back a {
+  color: #fff;
+}
+
+.main-content .back a span {
+  display: flex;
+  flex-direction: column;
+}
