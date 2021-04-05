@@ -11,26 +11,31 @@
 </head>
 <body>
   <header>
-    <nav class="header-inner base-color">
-      <div class="logo-item"><a href="{% url 'home:home' %}" class="logo-title">Twitter</a></div>
-      <div class="header-menu">
-        {% if user.is_authenticated %}
-        <ul class="header-menu-list">
-          <li><a class="header-item" href="{% url 'logout' %}">ログアウト</a></li>
-        </ul>
-        {% else %}
-        <ul class="header-menu-list">
-          <li><a class="header-item" href="{% url 'login' %}">ログイン</a></li>
-          <li><a class="header-item" href="{% url 'signup:signup' %}">ユーザー登録</a></li>
-        </ul>
-        {% endif %}
-      </div>
-    </nav>
+
   </header>
   <main>
-    <div class="main-color h-100">
-      {% block content %}
-      {% endblock %}
+    <div class="main-color h-100 d-flex">
+      <div class="side-menu w-25 base-color">
+          <div class="logo-item"><a href="{% url 'home:home' %}" class="logo-title">投稿アプリ</a></div>
+          <div class="menu-list">
+            {% if user.is_authenticated %}
+            <ul class="menu-items mt-4">
+              <li><a class="menu-item" href="{% url 'home:home' %}">ホーム</a></li>
+              <li><a class="menu-item" href="{% url 'logout' %}">ログアウト</a></li>
+            </ul>
+            {% else %}
+            <ul class="menu-items">
+              <li><a class="menu-item" href="{% url 'home:home' %}">ホーム</a></li>
+              <li><a class="menu-item" href="{% url 'login' %}">ログイン</a></li>
+              <li><a class="menu-item" href="{% url 'signup:signup' %}">ユーザー登録</a></li>
+            </ul>
+            {% endif %}
+          </div>
+      </div>
+      <div class="main-inner w-75">
+        {% block content %}
+        {% endblock %}
+      </div>
     </div>
   </main>
 </body>
