@@ -141,6 +141,10 @@ button:focus {
 
 
 /* main */
+main .main-inner {
+  overflow: hidden;
+}
+
 
 main .row {
   justify-content: center;
@@ -151,10 +155,6 @@ main .row {
   margin: 12px;
   justify-content: center;
   position: relative;
-}
-
-.post-list {
-  margin-bottom: 400px;
 }
 
 .main-content .home-title {

@@ -8,6 +8,7 @@
       <div class="post sub-color">
         <div class="user"><a href={% url 'user:profile' main_post.user.id %}><span class="accent-color">{{main_post.user}}</span></a></div>
         <p class="ml-3 mt-3">{{ main_post.text }}</p>
+        <p class="ml-3 mt-4">{{ main_post.created_date|date:"Y n/j H:i"}}</p>
       </div>
       {% for reply in replies %}
         <div class="post sub-color">

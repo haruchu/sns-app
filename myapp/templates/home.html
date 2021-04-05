@@ -5,25 +5,28 @@
   <div class="row">
     <div class="col-6 main-content post-list">
       <h4 class="home-title">投稿</h4>
+      <div class="scrollable">
       {% for post in posts %}
         <div class="post sub-color">
           <div class="user"><a href={% url 'user:profile' post.user.id %}><span class="accent-color">{{post.user}}</span></a></div>
           {% if current_user == post.user %}
-            <div class="delete">
-              <a href="{% url 'post:delete' post.id %}"><i class="fas fa-times zoom"></i></a>
-            </div>
+          <div class="delete">
+            <a href="{% url 'post:delete' post.id %}"><i class="fas fa-times zoom"></i></a>
+          </div>
           {% endif %}
           <p class="ml-3 mt-3">{{ post.text }}</p>
+          <p class="ml-3 mt-4">{{ post.created_date|date:"Y n/j H:i"}}</p>
           <div class="btn-right">
             <a href="{% url 'post:reply_list' post.id %}" class="reply-btn zoom ml-4"><i class="fas fa-reply"></i><span class="like-num"></span></a>
             {% if post.id in my_likes_ids %}
-              <a href="{% url 'post:unlike' post.id %}" class="like-btn zoom ml-4"><i class="fas fa-heart"></i><span class="like-num">{{post.like}}</span></a>
+            <a href="{% url 'post:unlike' post.id %}" class="like-btn zoom ml-4"><i class="fas fa-heart"></i><span class="like-num">{{post.like}}</span></a>
             {% else %}
-              <a href="{% url 'post:like' post.id %}" class="prev-like-btn zoom ml-4"><i class="far fa-heart"></i><span class="like-num">{{post.like}}</span></a>
+            <a href="{% url 'post:like' post.id %}" class="prev-like-btn zoom ml-4"><i class="far fa-heart"></i><span class="like-num">{{post.like}}</span></a>
             {% endif %}
           </div>
         </div>
       {% endfor %}
+      </div>
     </div>
     <div class="post-form sub-color col-6">
       <form method="POST" action="{% url 'post:post' %}" class="">
