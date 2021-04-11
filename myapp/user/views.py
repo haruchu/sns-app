@@ -55,3 +55,14 @@ def unfollow_view(request, user_id):
     messages.success(
         request, '{}のフォローを外しました'.format(followee.username))
     return redirect('user:profile', user_id=followee.id)
+
+@login_required
+def administrator(request):
+    if request.user.is_superuser:
+        context = {
+            'user_num': User.objects.count(),
+        }
+        return render(request, 'administrator.html', context)
+    return redirect('/home')
+
+

@@ -21,6 +21,9 @@
             {% if user.is_authenticated %}
             <ul class="menu-items mt-4">
               <li><a class="menu-item" href="{% url 'home:home' %}">ホーム</a></li>
+              {% if user.is_superuser %}
+                <li><a class="menu-item" href="{% url 'user:administrator' %}">管理者画面</a></li>
+              {% endif %}
               <li><a class="menu-item" href="{% url 'logout' %}">ログアウト</a></li>
             </ul>
             {% else %}
