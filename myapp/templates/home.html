@@ -7,7 +7,7 @@
       <h4 class="title">投稿</h4>
       <div class="scrollable">
       {% for post in posts %}
-        <div class="post sub-color">
+        <div class="post main-color">
           <div class="user"><a href={% url 'user:profile' post.user.id %}><span class="accent-color">{{post.user}}</span></a></div>
           {% if current_user == post.user %}
           <div class="delete">
@@ -28,11 +28,11 @@
       {% endfor %}
       </div>
     </div>
-    <div class="post-form sub-color col-6">
+    <div class="post-form base-color col-6">
       <form method="POST" action="{% url 'post:post' %}" class="">
         {% csrf_token %}
         {{form.as_p}}
-        <input class="post-btn accent-color" type="submit" value="投稿する">
+        <input class="post-btn" type="submit" value="投稿する">
       </form>
     </div>
   </div>
