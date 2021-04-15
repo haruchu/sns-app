@@ -7,12 +7,8 @@
       <h4 class="home-title">返信</h4>
       <div class="post sub-color">
         <div class="user"><a href={% url 'user:profile' main_post.user.id %}><span class="accent-color">{{main_post.user}}</span></a></div>
-        {% if current_user == main_post.user %}
-          <div class="delete">
-            <a href="{% url 'post:delete' main_post.id %}"><i class="fas fa-times zoom"></i></a>
-          </div>
-        {% endif %}
         <p class="ml-3 mt-3">{{ main_post.text }}</p>
+        <p class="ml-3 mt-4">{{ main_post.created_date|date:"Y n/j H:i"}}</p>
       </div>
       {% for reply in replies %}
         <div class="post sub-color">

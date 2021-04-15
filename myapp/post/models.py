@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 from django.contrib.auth import get_user_model
 
 class Post(models.Model):
@@ -7,6 +8,7 @@ class Post(models.Model):
         get_user_model(), on_delete=models.CASCADE, default="")
     text = models.CharField(max_length=200)
     like = models.PositiveIntegerField(default=0)
+    created_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return (str(self.text) + '(' + str(self.user) + ')')

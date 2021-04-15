@@ -17,7 +17,8 @@ def home(request):
         "user": request.user,
         "current_user": current_user,
         "form": form,
-        "posts": Post.objects.all(),
+        "posts": Post.objects.order_by('-created_date')
+.all(),
         "my_likes_ids":Like.objects.filter(
             user=request.user).values_list('post_id', flat=True),
     }
