@@ -66,8 +66,8 @@ button:focus {
 }
 
 .sub-color {
-  background-color: #00adb5;
-  color: #000;
+  background-color: #000;
+  color: #fff;
 }
 
 .accent-color {
@@ -155,18 +155,17 @@ main .row {
 
 .main-content {
   height: 100vh;
-  margin: 12px;
   justify-content: center;
   position: relative;
 }
 
 .main-content .title {
-  padding: 10px;
+  margin: 16px;
   font-weight: 800;
 }
 
 .post-list .post {
-  border: 2px solid #000;
+  border: 2px solid #222831;
   border-radius: 30px;
   margin: 5px 0;
   padding: 20px;
@@ -207,7 +206,7 @@ main .row {
 
 .post-list .post .prev-like-btn,
 .post-list .post .reply-btn {
-  color: #cadefc;
+  color: #fff;
 }
 
 .post-list .post .like-btn,
@@ -243,7 +242,8 @@ main .row {
   text-align: center;
   justify-content: center;
   align-items: center;
-  border: black 5px solid;
+  background-color: #000;
+  border: #222831 5px solid;
   border-radius: 20px;
   position: fixed;
   bottom: 5px;
@@ -279,8 +279,9 @@ main .row {
 
 .post-form p textarea {
   width: 100%;
-  padding: 4px;
-  background-color: #00adb5;
+  padding: 12px;
+  color: #fff;
+  background-color: #000;
   border: none;
   outline: none;
 }
@@ -294,7 +295,7 @@ main .row {
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
   border-bottom: solid 2px #00adb5;
   position: absolute;
-  bottom: 8px;
+  bottom: 16px;
 }
 
 .post-form form .post-btn:active {
