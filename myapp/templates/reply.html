@@ -4,7 +4,7 @@
 <div class="container">
   <div class="row">
     <div class="col-6 main-content post-list">
-      <h4 class="home-title">返信</h4>
+      <h4 class="title">返信</h4>
       <div class="post sub-color">
         <div class="user"><a href={% url 'user:profile' main_post.user.id %}><span class="accent-color">{{main_post.user}}</span></a></div>
         <p class="ml-3 mt-3">{{ main_post.text }}</p>
@@ -23,7 +23,7 @@
       <form method="POST" action="{% url 'post:reply' main_post.id %}" class="">
         {% csrf_token %}
         {{form.as_p}}
-        <input class="post-btn accent-color" type="submit" value="投稿する">
+        <input class="post-btn" type="submit" value="投稿する">
       </form>
     </div>
   </div>
